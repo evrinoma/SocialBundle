@@ -4,16 +4,16 @@
 
     contractor:
         db_driver: orm модель данных
-        factory: App\Fcr\Factory\FcrFactory фабрика для создания объектов,
+        factory: App\Social\Factory\SocialFactory фабрика для создания объектов,
                  недостающие значения можно разрешить только на уровне Mediator
-        entity: App\Fcr\Entity\Fcr сущность
+        entity: App\Social\Entity\Social сущность
         constraints: Вкл/выкл проверки полей сущности по умолчанию 
-        dto_class: App\Fcr\Dto\FcrDto класс dto с которым работает сущность
+        dto_class: App\Social\Dto\SocialDto класс dto с которым работает сущность
         decorates:
-          command - декоратор mediator команд цфо 
-          query - декоратор mediator запросов цфо
+          command - декоратор mediator команд соц сетей 
+          query - декоратор mediator запросов соц сетей
         services:
-          pre_validator - переопределение сервиса валидатора цфо
+          pre_validator - переопределение сервиса валидатора соц сетей
           handler - переопределение сервиса обработчика сущностей
 
 # CQRS model
@@ -36,25 +36,25 @@ Actions в контроллере разбиты на две группы
 
 группы  сериализации
 
-    1. API_GET_FCR, API_CRITERIA_FCR - получение цфо
-    2. API_POST_FCR - создание цфо
-    3. API_PUT_FCR -  редактирование цфо
+    1. API_GET_SOCIAL, API_CRITERIA_SOCIAL - получение соц сети
+    2. API_POST_SOCIAL - создание соц сети
+    3. API_PUT_SOCIAL -  редактирование соц сети
 
 # Статусы:
 
     создание:
-        цфо создан HTTP_CREATED 201
+        соц сеть создана HTTP_CREATED 201
     обновление:
-        цфо обновление HTTP_OK 200
+        соц сеть обновление HTTP_OK 200
     удаление:
-        цфо удален HTTP_ACCEPTED 202
+        соц сеть удален HTTP_ACCEPTED 202
     получение:
-        цфо(ы) найдены HTTP_OK 200
+        соц сеть(и) найдены HTTP_OK 200
     ошибки:
-        если цфо не найден FcrNotFoundException возвращает HTTP_NOT_FOUND 404
-        если цфо не уникален UniqueConstraintViolationException возвращает HTTP_CONFLICT 409
-        если цфо не прошел валидацию FcrInvalidException возвращает HTTP_UNPROCESSABLE_ENTITY 422
-        если цфо не может быть сохранен FcrCannotBeSavedException возвращает HTTP_NOT_IMPLEMENTED 501
+        если соц сеть не найдена SocialNotFoundException возвращает HTTP_NOT_FOUND 404
+        если соц сеть не уникальна UniqueConstraintViolationException возвращает HTTP_CONFLICT 409
+        если соц сеть не прошла валидацию SocialInvalidException возвращает HTTP_UNPROCESSABLE_ENTITY 422
+        если соц сеть не может быть сохранена SocialCannotBeSavedException возвращает HTTP_NOT_IMPLEMENTED 501
         все остальные ошибки возвращаются как HTTP_BAD_REQUEST 400
 
 # Constraint
@@ -62,7 +62,7 @@ Actions в контроллере разбиты на две группы
 Для добавления проверки поля сущности social нужно описать логику проверки реализующую интерфейс Evrinoma\UtilsBundle\Constraint\Property\ConstraintInterface и зарегистрировать сервис с этикеткой evrinoma.social.constraint.property
 
     evrinoma.social.constraint.property.custom:
-        class: App\Fcr\Constraint\Property\Custom
+        class: App\Social\Constraint\Property\Custom
         tags: [ 'evrinoma.social.constraint.property' ]
 
 ## Description

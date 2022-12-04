@@ -24,9 +24,9 @@ use Symfony\Component\HttpFoundation\Request;
 class SocialApiDto extends AbstractDto implements SocialApiDtoInterface
 {
     use ActiveTrait;
+    use IdTrait;
     use NameTrait;
     use UrlTrait;
-    use IdTrait;
 
     public function toDto(Request $request): DtoInterface
     {
@@ -48,7 +48,7 @@ class SocialApiDto extends AbstractDto implements SocialApiDtoInterface
                 $this->setName($name);
             }
             if ($url) {
-                $this->setName($url);
+                $this->setUrl($url);
             }
         }
 

@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace Evrinoma\SocialBundle\Dto\Preserve;
 
-use Evrinoma\DtoCommon\ValueObject\Preserve\NameTrait;
-use Evrinoma\DtoCommon\ValueObject\Preserve\UrlTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\ActiveTrait;
 use Evrinoma\DtoCommon\ValueObject\Preserve\IdTrait;
+use Evrinoma\DtoCommon\ValueObject\Preserve\NameTrait;
+use Evrinoma\DtoCommon\ValueObject\Preserve\UrlTrait;
 
 trait SocialApiDtoTrait
 {
     use ActiveTrait;
+    use IdTrait;
     use NameTrait;
     use UrlTrait;
-    use IdTrait;
 }

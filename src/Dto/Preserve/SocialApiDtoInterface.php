@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace Evrinoma\SocialBundle\Dto\Preserve;
 
-use Evrinoma\DtoCommon\ValueObject\Mutable\NameInterface;
-use Evrinoma\DtoCommon\ValueObject\Mutable\UrlInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\ActiveInterface;
 use Evrinoma\DtoCommon\ValueObject\Mutable\IdInterface;
+use Evrinoma\DtoCommon\ValueObject\Mutable\NameInterface;
+use Evrinoma\DtoCommon\ValueObject\Mutable\UrlInterface;
 
 interface SocialApiDtoInterface extends IdInterface, ActiveInterface, NameInterface, UrlInterface
 {

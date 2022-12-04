@@ -17,7 +17,7 @@ use Evrinoma\TestUtilsBundle\ValueObject\Common\AbstractId;
 
 class Id extends AbstractId
 {
-    protected static string $value = '48';
+    protected static string $value = '1';
     protected static string $default = '88';
 
     public static function default(): string

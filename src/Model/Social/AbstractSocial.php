@@ -14,10 +14,10 @@ declare(strict_types=1);
 namespace Evrinoma\SocialBundle\Model\Social;
 
 use Doctrine\ORM\Mapping as ORM;
-use Evrinoma\UtilsBundle\Entity\NameTrait;
 use Evrinoma\UtilsBundle\Entity\ActiveTrait;
 use Evrinoma\UtilsBundle\Entity\CreateUpdateAtTrait;
 use Evrinoma\UtilsBundle\Entity\IdTrait;
+use Evrinoma\UtilsBundle\Entity\NameTrait;
 use Evrinoma\UtilsBundle\Entity\UrlTrait;
 
 /**
@@ -27,8 +27,8 @@ abstract class AbstractSocial implements SocialInterface
 {
     use ActiveTrait;
     use CreateUpdateAtTrait;
-    use NameTrait;
     use IdTrait;
+    use NameTrait;
     use UrlTrait;
     /**
      * @var int
