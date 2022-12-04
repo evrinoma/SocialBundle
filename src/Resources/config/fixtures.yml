@@ -1,0 +1,5 @@
+services:
+  evrinoma.social.fixtures.social:
+    class: Evrinoma\SocialBundle\Fixtures\SocialFixtures
+    tags:
+      - { name: doctrine.fixture.orm }

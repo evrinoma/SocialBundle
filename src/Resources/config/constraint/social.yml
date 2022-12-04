@@ -1,0 +1,12 @@
+services:
+  evrinoma.social.constraint.property.id:
+    class: Evrinoma\SocialBundle\Constraint\Property\Id
+
+  evrinoma.social.constraint.property.name:
+    class: Evrinoma\SocialBundle\Constraint\Property\Name
+
+  evrinoma.social.constraint.property.url:
+    class: Evrinoma\SocialBundle\Constraint\Property\Url
+
+  evrinoma.social.constraint.property.active:
+    class: Evrinoma\SocialBundle\Constraint\Property\Active

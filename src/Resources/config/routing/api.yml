@@ -1,0 +1,3 @@
+social_api:
+  resource: "@EvrinomaSocialBundle/Controller/SocialApiController.php"
+  type: annotation

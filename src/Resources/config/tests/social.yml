@@ -1,0 +1,9 @@
+services:
+  evrinoma.social.test.functional.action.social:
+    class: Evrinoma\SocialBundle\Tests\Functional\Action\BaseSocial
+    public: true
+    arguments:
+
+  Evrinoma\SocialBundle\Tests\Functional\Action\BaseSocial:
+    alias: evrinoma.social.test.functional.action.social
+    public: true

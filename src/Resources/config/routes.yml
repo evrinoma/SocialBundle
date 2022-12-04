@@ -1,0 +1,3 @@
+socialapi:
+  resource: "@EvrinomaSocialBundle/Resources/config/routing/api.yml"
+  prefix: evrinoma

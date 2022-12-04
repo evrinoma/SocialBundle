@@ -1,0 +1,2 @@
+social:
+    resource: "@EvrinomaSocialBundle/Resources/config/routes.yml"

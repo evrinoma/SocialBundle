@@ -1,0 +1,90 @@
+services:
+  Evrinoma\SocialBundle\Controller\SocialApiController:
+    alias: evrinoma.social.api.controller
+    public: true
+
+  evrinoma.social.api.controller:
+    class: Evrinoma\SocialBundle\Controller\SocialApiController
+    arguments:
+      - '@jms_serializer'
+      - '@request_stack'
+      - '@evrinoma.dto.factory'
+      - '@evrinoma.social.facade'
+    autowire: true
+
+  evrinoma.social.facade:
+    class: Evrinoma\SocialBundle\Facade\Social\Facade
+    arguments:
+      - '@evrinoma.social.command.manager'
+      - '@evrinoma.social.query.manager'
+    autowire: true
+
+  Evrinoma\SocialBundle\Facade\Social\FacadeInterface:
+    alias: evrinoma.social.facade
+
+  evrinoma.social.factory:
+    class: Evrinoma\SocialBundle\Factory\SocialFactory
+    public: true
+    arguments:
+
+  evrinoma.social.orm.repository:
+    class: Evrinoma\SocialBundle\Repository\Orm\Social\SocialRepository
+    public: true
+    arguments:
+
+  evrinoma.social.command.manager:
+    class: Evrinoma\SocialBundle\Manager\CommandManager
+    arguments:
+      - '@evrinoma.social.validator'
+      - '@evrinoma.social.repository'
+      - '@evrinoma.social.factory'
+      - '@evrinoma.social.command.mediator'
+
+  Evrinoma\SocialBundle\Manager\CommandManagerInterface:
+    alias: evrinoma.social.command.manager
+
+  evrinoma.social.query.manager:
+    class: Evrinoma\SocialBundle\Manager\QueryManager
+    arguments:
+      - '@evrinoma.social.repository'
+
+  Evrinoma\SocialBundle\Manager\QueryManagerInterface:
+    alias: evrinoma.social.query.manager
+    
+  evrinoma.social.validator:
+    class: Evrinoma\SocialBundle\Validator\SocialValidator
+    public: true
+    arguments:
+
+  Evrinoma\SocialBundle\Validator\SocialValidator:
+    alias: evrinoma.social.validator
+
+  evrinoma.social.query.orm.mediator:
+    class: Evrinoma\SocialBundle\Mediator\Orm\QueryMediator
+    public: true
+    arguments:
+
+  Evrinoma\SocialBundle\Mediator\Orm\QueryMediator:
+    alias: evrinoma.social.query.orm.mediator
+
+  evrinoma.social.command.mediator:
+    class: Evrinoma\SocialBundle\Mediator\CommandMediator
+    public: true
+    arguments:
+
+  Evrinoma\SocialBundle\Mediator\CommandMediator:
+    alias: evrinoma.social.command.mediator
+
+  Evrinoma\SocialBundle\Mediator\CommandMediatorInterface:
+    alias: evrinoma.social.command.mediator
+
+  evrinoma.social.pre.validator:
+    class: Evrinoma\SocialBundle\PreValidator\DtoPreValidator
+    public: true
+    arguments:
+
+  Evrinoma\SocialBundle\PreValidator\DtoPreValidator:
+    alias: evrinoma.social.pre.validator
+
+  Evrinoma\SocialBundle\PreValidator\DtoPreValidatorInterface:
+    alias: evrinoma.social.pre.validator

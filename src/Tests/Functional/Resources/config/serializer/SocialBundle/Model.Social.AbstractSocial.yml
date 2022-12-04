@@ -1,0 +1,20 @@
+Evrinoma\SocialBundle\Model\Social\AbstractSocial:
+  exclusion_policy: ALL
+  properties:
+    id:
+      groups: [ API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL, ]
+      expose: true
+    createdAt:
+      type: DateTimeImmutable<'Y-m-d H:i'>
+      groups: [ API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL,  ]
+    updatedAt:
+      type: DateTimeImmutable<'Y-m-d H:i'>
+      groups: [ API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL, ]
+    active:
+      groups: [ API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL, ]
+      expose: true
+    description:
+      groups: [ API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL, ]
+      expose: true
+
+
