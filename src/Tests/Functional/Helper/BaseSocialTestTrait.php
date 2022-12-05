@@ -36,20 +36,6 @@ trait BaseSocialTestTrait
         return $this->post($query);
     }
 
-    protected function createSocialDuplicateId(): array
-    {
-        $query = static::getDefault([SocialApiDtoInterface::ID => '48']);
-
-        return $this->post($query);
-    }
-
-    protected function createConstraintBlankId(): array
-    {
-        $query = static::getDefault([SocialApiDtoInterface::ID => '']);
-
-        return $this->post($query);
-    }
-
     protected function createConstraintBlankName(): array
     {
         $query = static::getDefault([SocialApiDtoInterface::NAME => '']);

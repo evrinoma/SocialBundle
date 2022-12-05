@@ -1,7 +1,4 @@
 services:
-  evrinoma.social.constraint.property.id:
-    class: Evrinoma\SocialBundle\Constraint\Property\Id
-
   evrinoma.social.constraint.property.name:
     class: Evrinoma\SocialBundle\Constraint\Property\Name
 

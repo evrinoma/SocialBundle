@@ -24,49 +24,42 @@ class SocialFixtures extends AbstractFixture implements FixtureGroupInterface, O
 {
     protected static array $data = [
         [
-            SocialApiDtoInterface::ID => 1,
             SocialApiDtoInterface::NAME => 'ite',
             SocialApiDtoInterface::URL => 'http://ite',
             SocialApiDtoInterface::ACTIVE => 'a',
             'created_at' => '2008-10-23 10:21:50',
         ],
         [
-            SocialApiDtoInterface::ID => 10001,
             SocialApiDtoInterface::NAME => 'kzkt',
             SocialApiDtoInterface::URL => 'http://kzkt',
             SocialApiDtoInterface::ACTIVE => 'a',
             'created_at' => '2015-10-23 10:21:50',
         ],
         [
-            SocialApiDtoInterface::ID => 90,
             SocialApiDtoInterface::NAME => 'c2m',
             SocialApiDtoInterface::URL => 'http://c2m',
             SocialApiDtoInterface::ACTIVE => 'a',
             'created_at' => '2020-10-23 10:21:50',
         ],
         [
-            SocialApiDtoInterface::ID => 1001,
             SocialApiDtoInterface::NAME => 'kzkt2',
             SocialApiDtoInterface::URL => 'http://kzkt2',
             SocialApiDtoInterface::ACTIVE => 'd',
             'created_at' => '2015-10-23 10:21:50',
             ],
         [
-            SocialApiDtoInterface::ID => 49,
             SocialApiDtoInterface::NAME => 'nvr',
             SocialApiDtoInterface::URL => 'http://nvr',
             SocialApiDtoInterface::ACTIVE => 'b',
             'created_at' => '2010-10-23 10:21:50',
         ],
         [
-            SocialApiDtoInterface::ID => 50,
             SocialApiDtoInterface::NAME => 'nvr2',
             SocialApiDtoInterface::URL => 'http://nvr2',
             SocialApiDtoInterface::ACTIVE => 'd',
             'created_at' => '2010-10-23 10:21:50',
             ],
         [
-            SocialApiDtoInterface::ID => 51,
             SocialApiDtoInterface::NAME => 'nvr3',
             SocialApiDtoInterface::URL => 'http://nvr3',
             SocialApiDtoInterface::ACTIVE => 'd',
@@ -91,7 +84,6 @@ class SocialFixtures extends AbstractFixture implements FixtureGroupInterface, O
         foreach (static::$data as $record) {
             $entity = new static::$class();
             $entity
-                ->setId($record[SocialApiDtoInterface::ID])
                 ->setName($record[SocialApiDtoInterface::NAME])
                 ->setUrl($record[SocialApiDtoInterface::URL])
                 ->setCreatedAt(new \DateTimeImmutable($record['created_at']))

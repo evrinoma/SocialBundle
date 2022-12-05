@@ -30,23 +30,4 @@ abstract class AbstractSocial implements SocialInterface
     use IdTrait;
     use NameTrait;
     use UrlTrait;
-    /**
-     * @var int
-     *
-     * @ORM\Id
-     * @ORM\Column(name="id", type="integer")
-     */
-    protected $id;
-
-    /**
-     * @param int|null $id
-     *
-     * @return SocialInterface
-     */
-    public function setId(?int $id): SocialInterface
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 }

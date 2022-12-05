@@ -81,10 +81,6 @@ class BaseSocial extends AbstractServiceTest implements BaseSocialTestInterface
         $find = $this->criteria([SocialApiDtoInterface::DTO_CLASS => static::getDtoClass(), SocialApiDtoInterface::ACTIVE => Active::delete(), SocialApiDtoInterface::NAME => Name::value()]);
         $this->testResponseStatusOK();
         Assert::assertCount(2, $find[PayloadModel::PAYLOAD]);
-
-        $find = $this->criteria([SocialApiDtoInterface::DTO_CLASS => static::getDtoClass(), SocialApiDtoInterface::ID => 49, SocialApiDtoInterface::ACTIVE => Active::block(), SocialApiDtoInterface::NAME => Name::value()]);
-        $this->testResponseStatusOK();
-        Assert::assertCount(1, $find[PayloadModel::PAYLOAD]);
     }
 
     public function actionDelete(): void
@@ -146,14 +142,16 @@ class BaseSocial extends AbstractServiceTest implements BaseSocialTestInterface
 
     public function actionPutUnprocessable(): void
     {
-        $query = static::getDefault([SocialApiDtoInterface::ID => Id::empty()]);
+        $created = $this->createSocial();
+        $this->testResponseStatusCreated();
+        $this->checkResult($created);
+
+        $query = static::getDefault([SocialApiDtoInterface::ID=>$created[PayloadModel::PAYLOAD][0][SocialApiDtoInterface::ID], SocialApiDtoInterface::NAME => Name::empty()]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
-        $this->createSocial();
-
-        $query = static::getDefault([SocialApiDtoInterface::NAME => Name::empty()]);
+        $query = static::getDefault([SocialApiDtoInterface::ID=>$created[PayloadModel::PAYLOAD][0][SocialApiDtoInterface::ID], SocialApiDtoInterface::URL => URL::empty()]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
@@ -171,10 +169,10 @@ class BaseSocial extends AbstractServiceTest implements BaseSocialTestInterface
         $this->postWrong();
         $this->testResponseStatusUnprocessable();
 
-        $this->createConstraintBlankId();
+        $this->createConstraintBlankName();
         $this->testResponseStatusUnprocessable();
 
-        $this->createConstraintBlankName();
+        $this->createConstraintBlankUrl();
         $this->testResponseStatusUnprocessable();
     }
 }
