@@ -146,12 +146,12 @@ class BaseSocial extends AbstractServiceTest implements BaseSocialTestInterface
         $this->testResponseStatusCreated();
         $this->checkResult($created);
 
-        $query = static::getDefault([SocialApiDtoInterface::ID=>$created[PayloadModel::PAYLOAD][0][SocialApiDtoInterface::ID], SocialApiDtoInterface::NAME => Name::empty()]);
+        $query = static::getDefault([SocialApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][SocialApiDtoInterface::ID], SocialApiDtoInterface::NAME => Name::empty()]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
-        $query = static::getDefault([SocialApiDtoInterface::ID=>$created[PayloadModel::PAYLOAD][0][SocialApiDtoInterface::ID], SocialApiDtoInterface::URL => URL::empty()]);
+        $query = static::getDefault([SocialApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][SocialApiDtoInterface::ID], SocialApiDtoInterface::URL => URL::empty()]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
