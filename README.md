@@ -2,7 +2,7 @@
 
 преопределение штатного класса сущности
 
-    contractor:
+    social:
         db_driver: orm модель данных
         factory: App\Social\Factory\SocialFactory фабрика для создания объектов,
                  недостающие значения можно разрешить только на уровне Mediator
@@ -116,5 +116,4 @@ vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php
 ## Done
 
 ## License
-
     PROPRIETARY
