@@ -17,6 +17,7 @@ services:
     arguments:
       - '@evrinoma.social.command.manager'
       - '@evrinoma.social.query.manager'
+      - '@evrinoma.social.adaptor'
     autowire: true
 
   Evrinoma\SocialBundle\Facade\Social\FacadeInterface:
