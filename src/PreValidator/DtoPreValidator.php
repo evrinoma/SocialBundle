@@ -22,11 +22,19 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
 {
     public function onPost(DtoInterface $dto): void
     {
+        $this
+            ->checkUrl($dto)
+            ->checkName($dto)
+            ->checkActive($dto);
     }
 
     public function onPut(DtoInterface $dto): void
     {
-        $this->checkId($dto);
+        $this
+            ->checkId($dto)
+            ->checkUrl($dto)
+            ->checkName($dto)
+            ->checkActive($dto);
     }
 
     public function onDelete(DtoInterface $dto): void
@@ -34,11 +42,43 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         $this->checkId($dto);
     }
 
-    private function checkId(DtoInterface $dto): void
+    private function checkUrl(DtoInterface $dto): self
+    {
+        /** @var SocialApiDtoInterface $dto */
+        if (!$dto->hasId()) {
+            throw new SocialInvalidException('The Dto has\'t url');
+        }
+
+        return $this;
+    }
+
+    private function checkName(DtoInterface $dto): self
+    {
+        /** @var SocialApiDtoInterface $dto */
+        if (!$dto->hasName()) {
+            throw new SocialInvalidException('The Dto has\'t name');
+        }
+
+        return $this;
+    }
+
+    private function checkActive(DtoInterface $dto): self
+    {
+        /** @var SocialApiDtoInterface $dto */
+        if (!$dto->hasActive()) {
+            throw new SocialInvalidException('The Dto has\'t active');
+        }
+
+        return $this;
+    }
+
+    private function checkId(DtoInterface $dto): self
     {
         /** @var SocialApiDtoInterface $dto */
         if (!$dto->hasId()) {
             throw new SocialInvalidException('The Dto has\'t ID or class invalid');
         }
+
+        return $this;
     }
 }
