@@ -19,7 +19,7 @@ use Evrinoma\SocialBundle\Exception\SocialCannotBeRemovedException;
 use Evrinoma\SocialBundle\Exception\SocialCannotBeSavedException;
 use Evrinoma\SocialBundle\Exception\SocialInvalidException;
 use Evrinoma\SocialBundle\Exception\SocialNotFoundException;
-use Evrinoma\SocialBundle\Factory\SocialFactoryInterface;
+use Evrinoma\SocialBundle\Factory\Social\FactoryInterface;
 use Evrinoma\SocialBundle\Mediator\CommandMediatorInterface;
 use Evrinoma\SocialBundle\Model\Social\SocialInterface;
 use Evrinoma\SocialBundle\Repository\Social\SocialRepositoryInterface;
@@ -29,16 +29,16 @@ final class CommandManager implements CommandManagerInterface
 {
     private SocialRepositoryInterface $repository;
     private ValidatorInterface            $validator;
-    private SocialFactoryInterface           $factory;
+    private FactoryInterface           $factory;
     private CommandMediatorInterface      $mediator;
 
     /**
      * @param ValidatorInterface        $validator
      * @param SocialRepositoryInterface $repository
-     * @param SocialFactoryInterface    $factory
+     * @param FactoryInterface          $factory
      * @param CommandMediatorInterface  $mediator
      */
-    public function __construct(ValidatorInterface $validator, SocialRepositoryInterface $repository, SocialFactoryInterface $factory, CommandMediatorInterface $mediator)
+    public function __construct(ValidatorInterface $validator, SocialRepositoryInterface $repository, FactoryInterface $factory, CommandMediatorInterface $mediator)
     {
         $this->validator = $validator;
         $this->repository = $repository;

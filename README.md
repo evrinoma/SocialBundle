@@ -4,7 +4,7 @@
 
     social:
         db_driver: orm модель данных
-        factory: App\Social\Factory\SocialFactory фабрика для создания объектов,
+        factory: App\Social\Factory\Social\Factory фабрика для создания объектов,
                  недостающие значения можно разрешить только на уровне Mediator
         entity: App\Social\Entity\Social сущность
         constraints: Вкл/выкл проверки полей сущности по умолчанию 

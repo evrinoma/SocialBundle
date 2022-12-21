@@ -17,7 +17,7 @@ use Evrinoma\SocialBundle\DependencyInjection\Compiler\Constraint\Property\Socia
 use Evrinoma\SocialBundle\Dto\SocialApiDto;
 use Evrinoma\SocialBundle\Entity\Social\BaseSocial;
 use Evrinoma\SocialBundle\EvrinomaSocialBundle;
-use Evrinoma\SocialBundle\Factory\SocialFactory;
+use Evrinoma\SocialBundle\Factory\Social\Factory as SocialFactory;
 use Evrinoma\SocialBundle\Mediator\QueryMediatorInterface;
 use Evrinoma\SocialBundle\Repository\Social\SocialCommandRepositoryInterface;
 use Evrinoma\SocialBundle\Repository\Social\SocialQueryRepositoryInterface;

@@ -11,12 +11,12 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Evrinoma\SocialBundle\Factory;
+namespace Evrinoma\SocialBundle\Factory\Social;
 
 use Evrinoma\SocialBundle\Dto\SocialApiDtoInterface;
 use Evrinoma\SocialBundle\Model\Social\SocialInterface;
 
-interface SocialFactoryInterface
+interface FactoryInterface
 {
     /**
      * @param SocialApiDtoInterface $dto

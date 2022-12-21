@@ -11,13 +11,13 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Evrinoma\SocialBundle\Factory;
+namespace Evrinoma\SocialBundle\Factory\Social;
 
 use Evrinoma\SocialBundle\Dto\SocialApiDtoInterface;
 use Evrinoma\SocialBundle\Entity\Social\BaseSocial;
 use Evrinoma\SocialBundle\Model\Social\SocialInterface;
 
-class SocialFactory implements SocialFactoryInterface
+class Factory implements FactoryInterface
 {
     private static string $entityClass = BaseSocial::class;
 

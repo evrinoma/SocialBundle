@@ -24,7 +24,7 @@ services:
     alias: evrinoma.social.facade
 
   evrinoma.social.factory:
-    class: Evrinoma\SocialBundle\Factory\SocialFactory
+    class: Evrinoma\SocialBundle\Factory\Social\Factory
     public: true
     arguments:
 
