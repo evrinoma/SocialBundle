@@ -7,9 +7,11 @@ Evrinoma\SocialBundle\Model\Social\AbstractSocial:
     createdAt:
       type: DateTimeImmutable<'Y-m-d H:i'>
       groups: [ API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL, ]
+      expose: true
     updatedAt:
       type: DateTimeImmutable<'Y-m-d H:i'>
       groups: [ API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL, ]
+      expose: true
     active:
       groups: [ API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL, ]
       expose: true
