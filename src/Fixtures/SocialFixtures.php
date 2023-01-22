@@ -81,13 +81,16 @@ class SocialFixtures extends AbstractFixture implements FixtureGroupInterface, O
         $short = self::getReferenceName();
         $i = 0;
 
-        foreach (static::$data as $record) {
-            $entity = new static::$class();
+        foreach ($this->getData() as $record) {
+            $entity = $this->getEntity();
             $entity
                 ->setName($record[SocialApiDtoInterface::NAME])
                 ->setUrl($record[SocialApiDtoInterface::URL])
                 ->setCreatedAt(new \DateTimeImmutable($record['created_at']))
                 ->setActive($record[SocialApiDtoInterface::ACTIVE]);
+
+            $this->expandEntity($entity);
+
             $this->addReference($short.$i, $entity);
             $manager->persist($entity);
             ++$i;
