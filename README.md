@@ -25,7 +25,7 @@
                  недостающие значения можно разрешить только на уровне Mediator
         entity: App\Social\Entity\Social сущность
         constraints: Вкл/выкл проверки полей сущности по умолчанию 
-        dto_class: App\Social\Dto\SocialDto класс dto с которым работает сущность
+        dto: App\Social\Dto\SocialDto класс dto с которым работает сущность
         decorates:
           command - декоратор mediator команд соц сетей 
           query - декоратор mediator запросов соц сетей
