@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Evrinoma\SocialBundle\Tests\Functional;
 
+use Evrinoma\DtoBundle\EvrinomaDtoBundle;
+use Evrinoma\SocialBundle\EvrinomaSocialBundle;
 use Evrinoma\TestUtilsBundle\Kernel\AbstractApiKernel;
 
 /**
@@ -30,8 +32,8 @@ class Kernel extends AbstractApiKernel
     {
         return array_merge(
             parent::registerBundles(), [
-                new \Evrinoma\DtoBundle\EvrinomaDtoBundle(),
-                new \Evrinoma\SocialBundle\EvrinomaSocialBundle(),
+                new EvrinomaDtoBundle(),
+                new EvrinomaSocialBundle(),
             ]
         );
     }
