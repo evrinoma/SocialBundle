@@ -59,26 +59,45 @@ class BaseSocial extends AbstractServiceTest implements BaseSocialTestInterface
 
     public function actionCriteriaNotFound(): void
     {
-        $find = $this->criteria([SocialApiDtoInterface::DTO_CLASS => static::getDtoClass(), SocialApiDtoInterface::ACTIVE => Active::wrong()]);
+        $find = $this->criteria([
+            SocialApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            SocialApiDtoInterface::ACTIVE => Active::wrong(),
+        ]);
         $this->testResponseStatusNotFound();
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $find);
 
-        $find = $this->criteria([SocialApiDtoInterface::DTO_CLASS => static::getDtoClass(), SocialApiDtoInterface::ID => Id::value(), SocialApiDtoInterface::ACTIVE => Active::block(), SocialApiDtoInterface::NAME => Name::wrong()]);
+        $find = $this->criteria([
+            SocialApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            SocialApiDtoInterface::ID => Id::value(),
+            SocialApiDtoInterface::ACTIVE => Active::block(),
+            SocialApiDtoInterface::NAME => Name::wrong(),
+        ]);
         $this->testResponseStatusNotFound();
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $find);
     }
 
     public function actionCriteria(): void
     {
-        $find = $this->criteria([SocialApiDtoInterface::DTO_CLASS => static::getDtoClass(), SocialApiDtoInterface::ACTIVE => Active::value(), SocialApiDtoInterface::ID => Id::value()]);
+        $find = $this->criteria([
+            SocialApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            SocialApiDtoInterface::ACTIVE => Active::value(),
+            SocialApiDtoInterface::ID => Id::value(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(1, $find[PayloadModel::PAYLOAD]);
 
-        $find = $this->criteria([SocialApiDtoInterface::DTO_CLASS => static::getDtoClass(), SocialApiDtoInterface::ACTIVE => Active::delete()]);
+        $find = $this->criteria([
+            SocialApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            SocialApiDtoInterface::ACTIVE => Active::delete(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(3, $find[PayloadModel::PAYLOAD]);
 
-        $find = $this->criteria([SocialApiDtoInterface::DTO_CLASS => static::getDtoClass(), SocialApiDtoInterface::ACTIVE => Active::delete(), SocialApiDtoInterface::NAME => Name::value()]);
+        $find = $this->criteria([
+            SocialApiDtoInterface::DTO_CLASS => static::getDtoClass(),
+            SocialApiDtoInterface::ACTIVE => Active::delete(),
+            SocialApiDtoInterface::NAME => Name::value(),
+        ]);
         $this->testResponseStatusOK();
         Assert::assertCount(2, $find[PayloadModel::PAYLOAD]);
     }
@@ -101,7 +120,10 @@ class BaseSocial extends AbstractServiceTest implements BaseSocialTestInterface
     {
         $find = $this->assertGet(Id::value());
 
-        $updated = $this->put(static::getDefault([SocialApiDtoInterface::ID => Id::value(), SocialApiDtoInterface::NAME => Name::value()]));
+        $updated = $this->put(static::getDefault([
+            SocialApiDtoInterface::ID => Id::value(),
+            SocialApiDtoInterface::NAME => Name::value(),
+        ]));
         $this->testResponseStatusOK();
 
         Assert::assertEquals($find[PayloadModel::PAYLOAD][0][SocialApiDtoInterface::ID], $updated[PayloadModel::PAYLOAD][0][SocialApiDtoInterface::ID]);
@@ -129,14 +151,17 @@ class BaseSocial extends AbstractServiceTest implements BaseSocialTestInterface
 
     public function actionDeleteUnprocessable(): void
     {
-        $response = $this->delete(Id::empty());
+        $response = $this->delete(Id::blank());
         Assert::assertArrayHasKey(PayloadModel::PAYLOAD, $response);
         $this->testResponseStatusUnprocessable();
     }
 
     public function actionPutNotFound(): void
     {
-        $this->put(static::getDefault([SocialApiDtoInterface::ID => Id::wrong(), SocialApiDtoInterface::NAME => Name::wrong()]));
+        $this->put(static::getDefault([
+            SocialApiDtoInterface::ID => Id::wrong(),
+            SocialApiDtoInterface::NAME => Name::wrong(),
+        ]));
         $this->testResponseStatusNotFound();
     }
 
@@ -146,12 +171,18 @@ class BaseSocial extends AbstractServiceTest implements BaseSocialTestInterface
         $this->testResponseStatusCreated();
         $this->checkResult($created);
 
-        $query = static::getDefault([SocialApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][SocialApiDtoInterface::ID], SocialApiDtoInterface::NAME => Name::empty()]);
+        $query = static::getDefault([
+            SocialApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][SocialApiDtoInterface::ID],
+            SocialApiDtoInterface::NAME => Name::blank(),
+        ]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
 
-        $query = static::getDefault([SocialApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][SocialApiDtoInterface::ID], SocialApiDtoInterface::URL => URL::empty()]);
+        $query = static::getDefault([
+            SocialApiDtoInterface::ID => $created[PayloadModel::PAYLOAD][0][SocialApiDtoInterface::ID],
+            SocialApiDtoInterface::URL => URL::blank(),
+        ]);
 
         $this->put($query);
         $this->testResponseStatusUnprocessable();
