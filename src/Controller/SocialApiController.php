@@ -96,6 +96,7 @@ final class SocialApiController extends AbstractWrappedApiController implements 
         try {
             $this->facade->post($socialApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -144,6 +145,7 @@ final class SocialApiController extends AbstractWrappedApiController implements 
         try {
             $this->facade->put($socialApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -193,6 +195,7 @@ final class SocialApiController extends AbstractWrappedApiController implements 
         try {
             $this->facade->delete($socialApiDto, '', $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -255,6 +258,7 @@ final class SocialApiController extends AbstractWrappedApiController implements 
         try {
             $this->facade->criteria($socialApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
@@ -303,6 +307,7 @@ final class SocialApiController extends AbstractWrappedApiController implements 
         try {
             $this->facade->get($socialApiDto, $group, $json);
         } catch (\Exception $e) {
+            $json = [];
             $error = $this->setRestStatus($e);
         }
 
