@@ -93,7 +93,7 @@ class SocialFixtures extends AbstractFixture implements FixtureGroupInterface, O
 
             $this->addReference($short.$i, $entity);
             $manager->persist($entity);
-            ++$i;
+            $i++;
         }
 
         return $this;
