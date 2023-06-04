@@ -16,4 +16,5 @@ namespace Evrinoma\SocialBundle\Repository;
 interface AliasInterface
 {
     public const SOCIAL = 'social';
+    public const SOCIALS = AliasInterface::SOCIAL . 's';
 }
