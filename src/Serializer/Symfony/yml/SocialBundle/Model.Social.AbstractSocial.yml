@@ -1,0 +1,35 @@
+Evrinoma\SocialBundle\Model\Social\AbstractSocial:
+  attributes:
+    id:
+      groups: [ 
+        API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL,
+      ]
+    createdAt:
+      contexts:
+        type:
+          context:
+            datetime_format: 'Y-m-d H:i'
+      groups: [ 
+        API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL,
+      ]
+    updatedAt:
+      contexts:
+        type:
+          context:
+            datetime_format: 'Y-m-d H:i'
+      groups: [ 
+        API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL,
+      ]
+    active:
+      groups: [ 
+        API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL,
+      ]
+    name:
+      groups: [ 
+        API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL,
+      ]
+    url:
+      groups: [ 
+        API_GET_SOCIAL, API_POST_SOCIAL, API_PUT_SOCIAL,
+      ]
+
