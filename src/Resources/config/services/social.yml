@@ -89,11 +89,3 @@ services:
 
   Evrinoma\SocialBundle\PreValidator\DtoPreValidatorInterface:
     alias: evrinoma.social.pre.validator
-
-  evrinoma.social.serializer.social:
-    class: Evrinoma\SocialBundle\Serializer\Symfony\ConfigurationSocial
-    public: true
-    arguments:
-      - '%kernel.project_dir%'
-    tags:
-      - { name: 'evrinoma.serializer' }

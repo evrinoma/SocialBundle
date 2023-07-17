@@ -1,0 +1,6 @@
+services:
+  evrinoma.social.serializer.social:
+    class: Evrinoma\SocialBundle\Serializer\Symfony\ConfigurationSocial
+    public: true
+    tags:
+      - { name: 'evrinoma.serializer' }
