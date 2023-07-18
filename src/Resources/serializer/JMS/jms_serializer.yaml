@@ -3,4 +3,4 @@ jms_serializer:
     directories:
       SocialBundle:
         namespace_prefix: "Evrinoma\\SocialBundle"
-        path: '%kernel.root_dir%/src/Serializer/JMS/serializer/SocialBundle'
+        path: '%kernel.root_dir%/src/Resources/serializer/JMS/serializer/SocialBundle'

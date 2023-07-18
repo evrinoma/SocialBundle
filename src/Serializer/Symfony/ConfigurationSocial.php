@@ -17,5 +17,5 @@ use Evrinoma\UtilsBundle\Serialize\AbstractConfiguration;
 
 class ConfigurationSocial extends AbstractConfiguration
 {
-    protected string $fileName = '/src/Serializer/Symfony/yml/SocialBundle/Model.Social.AbstractSocial.yml';
+    protected string $fileName = '/src/Resources/serializer/Symfony/serializer/SocialBundle/Model.Social.AbstractSocial.yml';
 }
