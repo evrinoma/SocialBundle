@@ -78,7 +78,7 @@ final class SocialApiController extends AbstractWrappedApiController implements 
      *         )
      *     )
      * )
-     * @OA\Response(response=200, description="Create social")
+     * @OA\Response(response=201, description="Create social")
      *
      * @return JsonResponse
      */
