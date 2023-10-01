@@ -58,7 +58,8 @@ Actions в контроллере разбиты на две группы
 
     1. API_GET_SOCIAL, API_CRITERIA_SOCIAL - получение соц сети
     2. API_POST_SOCIAL - создание соц сети
-    3. API_PUT_SOCIAL -  редактирование соц сети
+    3. API_PUT_SOCIAL - редактирование соц сети
+    4. API_DELETE_SOCIAL - удаление соц сети
 
 # Статусы:
 

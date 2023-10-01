@@ -17,6 +17,7 @@ interface GroupInterface
 {
     public const API_POST_SOCIAL = 'API_POST_SOCIAL';
     public const API_PUT_SOCIAL = 'API_PUT_SOCIAL';
+    public const API_DELETE_SOCIAL = 'API_DELETE_SOCIAL';
     public const API_GET_SOCIAL = 'API_GET_SOCIAL';
     public const API_CRITERIA_SOCIAL = self::API_GET_SOCIAL;
     public const APP_GET_BASIC_SOCIAL = 'APP_GET_BASIC_SOCIAL';

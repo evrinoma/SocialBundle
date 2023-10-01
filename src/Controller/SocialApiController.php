@@ -100,7 +100,7 @@ final class SocialApiController extends AbstractWrappedApiController implements 
             $error = $this->setRestStatus($e);
         }
 
-        return $this->setSerializeGroup($group)->JsonResponse('Create social', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Create social', $json, $error);
     }
 
     /**
@@ -149,7 +149,7 @@ final class SocialApiController extends AbstractWrappedApiController implements 
             $error = $this->setRestStatus($e);
         }
 
-        return $this->setSerializeGroup($group)->JsonResponse('Save social', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Save social', $json, $error);
     }
 
     /**
@@ -191,15 +191,16 @@ final class SocialApiController extends AbstractWrappedApiController implements 
 
         $json = [];
         $error = [];
+        $group = GroupInterface::API_DELETE_SOCIAL;
 
         try {
-            $this->facade->delete($socialApiDto, '', $json);
+            $this->facade->delete($socialApiDto, $group, $json);
         } catch (\Exception $e) {
             $json = [];
             $error = $this->setRestStatus($e);
         }
 
-        return $this->JsonResponse('Delete social', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Delete social', $json, $error);
     }
 
     /**
@@ -262,7 +263,7 @@ final class SocialApiController extends AbstractWrappedApiController implements 
             $error = $this->setRestStatus($e);
         }
 
-        return $this->setSerializeGroup($group)->JsonResponse('Get social', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Get social', $json, $error);
     }
 
     /**
@@ -311,7 +312,7 @@ final class SocialApiController extends AbstractWrappedApiController implements 
             $error = $this->setRestStatus($e);
         }
 
-        return $this->setSerializeGroup($group)->JsonResponse('Get social', $json, $error);
+        return $this->setSerializeGroup($group)->jsonResponse('Get social', $json, $error);
     }
 
     /**
