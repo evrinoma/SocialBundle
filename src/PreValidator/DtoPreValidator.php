@@ -41,7 +41,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         $this->checkId($dto);
     }
 
-    private function checkUrl(DtoInterface $dto): self
+    protected function checkUrl(DtoInterface $dto): self
     {
         /** @var SocialApiDtoInterface $dto */
         if (!$dto->hasUrl()) {
@@ -51,7 +51,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         return $this;
     }
 
-    private function checkName(DtoInterface $dto): self
+    protected function checkName(DtoInterface $dto): self
     {
         /** @var SocialApiDtoInterface $dto */
         if (!$dto->hasName()) {
@@ -61,7 +61,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         return $this;
     }
 
-    private function checkActive(DtoInterface $dto): self
+    protected function checkActive(DtoInterface $dto): self
     {
         /** @var SocialApiDtoInterface $dto */
         if (!$dto->hasActive()) {
@@ -71,7 +71,7 @@ class DtoPreValidator extends AbstractPreValidator implements DtoPreValidatorInt
         return $this;
     }
 
-    private function checkId(DtoInterface $dto): self
+    protected function checkId(DtoInterface $dto): self
     {
         /** @var SocialApiDtoInterface $dto */
         if (!$dto->hasId()) {
